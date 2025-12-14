@@ -175,6 +175,12 @@ header {
         padding: 10px 20px;
     }
 
+    .nav-right {
+        gap: 0.5rem;
+        margin-right: 0;
+        padding-right: 20px;
+    }
+
     .logo {
         display: none;
     }
@@ -239,5 +245,6 @@ header {
         padding: 8px 15px;
     }
 }
+
 
 
