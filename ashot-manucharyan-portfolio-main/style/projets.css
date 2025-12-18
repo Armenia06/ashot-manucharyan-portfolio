@@ -1,0 +1,131 @@
+:root {
+    --primary-color: #4A5B6A;
+    --background-color: #263A47;
+    --secondary-color: #B9B9B9;
+    --text-color: #FFFFFF;
+    --accent-color: #667eea;
+    --nav-bg: rgba(38, 58, 71, 0.8);
+    --transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.main-title {
+    text-align: center;
+    font-size: clamp(3rem, 8vw, 5rem); /* Taille adaptative */
+    font-weight: 900;
+    margin-top: 200px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    background: linear-gradient(180deg, var(--text-color) 30%, var(--primary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.9;
+}
+
+.subtitle {
+    color: var(--accent-color);
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin-top: 10px;
+    display: block;
+}
+
+/* --- GRILLE & CARTES --- */
+.container {
+    max-width: 1700px;
+    margin: 0 auto;
+    padding: 0 20px 100px 20px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+.project-card {
+    position: relative;
+    background-color: var(--primary-color);
+    border-radius: 20px;
+    overflow: hidden;
+    height: 450px;
+    cursor: pointer;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    transition: var(--transition);
+}
+
+.project-card:hover {
+    transform: translateY(-15px) scale(1.02);
+}
+
+.project-image {
+    width: 105%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: var(--transition);
+}
+
+.project-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--background-color) 10%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 40px;
+    transition: var(--transition);
+}
+
+.project-card:hover .project-overlay {
+    background: linear-gradient(to top, rgba(38, 58, 71, 0.95) 40%, rgba(102, 126, 234, 0.3) 100%);
+}
+
+.darkmode .project-card:hover .project-overlay {
+    background: linear-gradient(to top, rgba(149, 169, 189, 0.95) 10%, rgba(80, 96, 114, 0.6) 100%);
+}
+
+.project-category {
+    color: var(--accent-color);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.project-title {
+    font-size: 1.8rem;
+    margin: 0;
+    transform: translateY(20px);
+    transition: var(--transition);
+}
+
+.project-description {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    margin: 15px 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transition);
+}
+
+.project-card:hover .project-category,
+.project-card:hover .project-title,
+.project-card:hover .project-description {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .nav-links { display: none; } /* On cache les liens sur mobile pour simplifier */
+    .main-title { font-size: 3rem; }
+}
